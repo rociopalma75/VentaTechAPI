@@ -1,0 +1,210 @@
+@VentaTechAPI_HostAddress = http://localhost:5282
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/Departamento
+Accept: application/json
+
+### /idValido
+GET {{VentaTechAPI_HostAddress}}/api/Departamento/5
+Accept: application/json
+
+### /idNoExistente
+GET {{VentaTechAPI_HostAddress}}/api/Departamento/0
+Accept: application/json
+
+### /idNoValido
+GET {{VentaTechAPI_HostAddress}}/api/Departamento/r
+Accept: application/json
+
+### 
+GET {{VentaTechAPI_HostAddress}}/api/Cliente
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Cliente
+Accept: application/json
+Content-Type: application/json
+{
+  "nombre": "Emilce vañ",
+  "apellido": "Pérez",
+  "direccion": "Av .Siempre Viva  Ciudad CP 400",
+  "email": "juan.@gmail.com",
+  "cuilCuit": "20123456789",
+  "telefono": "1234567890"
+}
+###
+PUT {{VentaTechAPI_HostAddress}}/api/Cliente/3
+Accept: application/json
+Content-Type: application/json
+{
+  "nombre": "   ",
+  "apellido": "Palma$",
+  "direccion": "Av Siria Viva 123 Ciudad CP 1234",
+  "email": "juan.perez@",
+  "cuilCuit": "2012345K789",
+  "telefono": "54+9112345678"
+}
+### 
+GET {{VentaTechAPI_HostAddress}}/api/Empleado
+Accept: application/json
+
+### 
+GET {{VentaTechAPI_HostAddress}}/api/Empleado/35
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Empleado/LogIn
+Accept: Application/json
+Content-Type: Application/json
+{
+  "correo": "rociopalma75@gmail.com",
+  "clave": "admin"
+}
+###
+POST {{VentaTechAPI_HostAddress}}/api/Empleado/SignIn
+Accept: Application/json
+Content-Type: Application/json
+{
+  "idTipoRol": 2,
+  "nombre": "Valeria",
+  "apellido": "Palma",
+  "fechaNacimiento": "2000-11-26",
+  "cuil": "11223334445",
+  "dni": "11222333",
+  "direccion": "string",
+  "fechaContratacion": "2024-11-26",
+  "idDepto": 2,
+  "usuario": "valeriapalma",
+  "correo": "valeriaPalma@gmail.com",
+  "hashClave": "admin"
+}
+
+
+###
+PUT {{VentaTechAPI_HostAddress}}/api/Empleado/8
+Accept: application/json
+Content-Type: application/json
+
+{
+  "idUsuario": 7,
+  "idTipoRol": 1,
+  "nombre": "rocio$$$",
+  "apellido": "palma",
+  "fechaNacimiento": "2024-11-16",
+  "cuil": "2923456789",
+  "dni": "44105560",
+  "direccion": "string",
+  "fechaContratacion": "2024-11-16",
+  "idDepto": 1
+}
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/Interacciones
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Interacciones
+Accept: application/json
+Content-Type: application/json
+{
+  "idCliente": 1,
+  "idEmpleado": 8,
+  "idTipoInteraccion": 1,
+  "motivo": "string2132343",
+  "fecha":"2024-11-15"
+}
+
+###
+PUT {{VentaTechAPI_HostAddress}}/api/Interacciones/4
+Accept: application/json
+Content-Type: application/json
+{
+  "idCliente": 1,
+  "idEmpleado": 8,
+  "idTipoInteraccion": 2,
+  "motivo": "Diseño de un sistema web",
+  "fecha":"2024-11-15"
+}
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/Proveedor
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Proveedor
+Accept: application/json
+Content-Type: application/json
+{
+  "razonSocial": "string",
+  "cuit": "11222333422",
+  "email": "rocioprov@gmail.com",
+  "telefono": "1234567090",
+  "direccion": "string",
+  "idRanking": 2
+}
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/ProductoServicio
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/ProductoServicio
+Accept: application/json
+Content-Type: application/json
+{
+  "descripcion": "CLARO",
+  "idProveedor": 2,
+  "precio": 10440
+}
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/ProductoServicio/2
+Accept: application/json
+
+###
+DELETE {{VentaTechAPI_HostAddress}}/api/ProductoServicio/2
+Accept: application/json
+
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/Registro
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Registro
+Accept: application/json
+Content-Type: application/json
+{
+  "idEmpleado": 3,
+  "idProductoServicio": 3,
+  "fecha": "2024-11-20"
+}
+
+###
+GET {{VentaTechAPI_HostAddress}}/api/ProductoSoftware
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/ProductoSoftware
+Accept: application/json
+Content-Type: application/json
+{
+  "idCliente": 1,
+  "descripcion": "app de escritorio",
+  "precio": 100,
+  "nombreProducto": "v2 de app",
+  "idEstado": 1
+}
+###
+GET {{VentaTechAPI_HostAddress}}/api/Venta
+Accept: application/json
+
+###
+POST {{VentaTechAPI_HostAddress}}/api/Venta
+Accept: application/json
+Content-Type: application/json
+{
+  "idProductoSoftware": 3,
+  "idEmpleadoRealiza": 3,
+  "fechaInicio": "2024-11-19"
+}

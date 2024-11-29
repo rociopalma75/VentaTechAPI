@@ -23,6 +23,8 @@ namespace VentaTechAPI.Models.DTO.CrudDTO
         public DateOnly FechaInicio { get; set; }
         public DateOnly? FechaEntrega { get; set; }
         public bool EstadoActivo { get; set; }
+        public decimal? Total { get; set; }
+
         [JsonPropertyName("empleadoInstala")]
         public virtual EmpleadoViewDTO IdEmpleadoInstalaNavigation { get; set; } = null!;
         [JsonPropertyName("empleadoRealizaVenta")]

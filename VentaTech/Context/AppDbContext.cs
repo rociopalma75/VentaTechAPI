@@ -43,6 +43,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TipoRol> TipoRols { get; set; }
 
     public virtual DbSet<Venta> Venta { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cliente>(entity =>
@@ -409,6 +410,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IdEmpleadoInstala).HasColumnName("id_empleado_instala");
             entity.Property(e => e.IdEmpleadoRealiza).HasColumnName("id_empleado_realiza");
             entity.Property(e => e.IdProductoSoftware).HasColumnName("id_productoSoftware");
+            entity.Property(e => e.Total)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("total");
 
             entity.HasOne(d => d.IdEmpleadoInstalaNavigation).WithMany(p => p.VentumIdEmpleadoInstalaNavigations)
                 .HasForeignKey(d => d.IdEmpleadoInstala)

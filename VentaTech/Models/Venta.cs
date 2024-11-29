@@ -19,6 +19,8 @@ public partial class Venta
 
     public bool EstadoActivo { get; set; }
 
+    public decimal? Total { get; set; }
+
     public virtual Empleado? IdEmpleadoInstalaNavigation { get; set; }
 
     public virtual Empleado IdEmpleadoRealizaNavigation { get; set; } = null!;

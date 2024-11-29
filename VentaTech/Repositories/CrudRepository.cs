@@ -35,7 +35,8 @@ namespace VentaTechAPI.Repositories
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            _context.Update(entity);
+            //_context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return entity;
         }

@@ -11,11 +11,11 @@ public partial class Venta
 
     public int IdEmpleadoRealiza { get; set; }
 
-    public int? IdEmpleadoInstala { get; set; } = null;
+    public int? IdEmpleadoInstala { get; set; }
 
     public DateOnly FechaInicio { get; set; }
 
-    public DateOnly? FechaEntrega { get; set; } = null;
+    public DateOnly? FechaEntrega { get; set; }
 
     public bool EstadoActivo { get; set; }
 

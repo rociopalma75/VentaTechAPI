@@ -26,6 +26,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Estado> Estados { get; set; }
 
+    public virtual DbSet<Historial> Historials { get; set; }
+
     public virtual DbSet<Interaccione> Interacciones { get; set; }
 
     public virtual DbSet<ProductoServicio> ProductoServicios { get; set; }
@@ -41,14 +43,17 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<TipoRol> TipoRols { get; set; }
 
     public virtual DbSet<Venta> Venta { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cliente>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__cliente__3213E83F2BCE04DA");
 
-            entity.ToTable("cliente");
+            entity.ToTable("cliente", tb =>
+                {
+                    tb.HasTrigger("ClienteAfterInsert");
+                    tb.HasTrigger("ClienteAfterUpdate");
+                });
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Apellido)
@@ -181,6 +186,22 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombreEstado");
+        });
+
+        modelBuilder.Entity<Historial>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__historia__3213E83F042805D1");
+
+            entity.ToTable("historial");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Accion)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("accion");
+            entity.Property(e => e.FechaHora)
+                .HasColumnType("datetime")
+                .HasColumnName("fechaHora");
         });
 
         modelBuilder.Entity<Interaccione>(entity =>

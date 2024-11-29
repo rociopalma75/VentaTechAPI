@@ -6,7 +6,8 @@ namespace VentaTechAPI.Models.DTO.CrudDTO
 {
     public record EmpleadoRequestDTO
     {
-        public int IdTipoRol { get; set; }
+        [JsonIgnore]
+        public int IdTipoRol { get; set; } = 2;
 
         public string Nombre { get; set; } = null!;
 
@@ -21,8 +22,8 @@ namespace VentaTechAPI.Models.DTO.CrudDTO
         public string Direccion { get; set; } = null!;
 
         public DateOnly FechaContratacion { get; set; }
-        [JsonIgnore]
-        public int IdDepto { get; set; } = 2;
+        
+        public int IdDepto { get; set; } 
 
         public string Usuario { get; set; } = null!;
 

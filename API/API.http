@@ -1,0 +1,15 @@
+@API_HostAddress = https://localhost:7266
+
+GET {{API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{API_HostAddress}}/api/empleado/SignIn
+Content-Type: application/json
+
+{
+  //EmpleadoRequestDTO
+}
+
+###
